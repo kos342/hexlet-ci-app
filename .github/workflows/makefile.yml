@@ -2,7 +2,9 @@ setup: install build
 
 install:
 	npm install
-  	npx eslint
+
+install:
+	npx eslint
 
 build:
 	npm run build
