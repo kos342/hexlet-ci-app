@@ -1,7 +1,9 @@
+
 setup: install build
 
 install:
 	npm install
+  npx eslint
 
 build:
 	npm run build
@@ -12,7 +14,5 @@ start:
 test:
 	npm test
 
-lint:
-	npx eslint .
-
-.PHONY: build
+make setup
+make test
