@@ -1,18 +1,15 @@
-setup: install build
+name: setup-and-test
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-install:
-	npm install
-
-build:
-	npm run build
-
-start:
-	npm start
-
-test:
-	npm test
-
-lint:
-	npx eslint .
-
-.PHONY: build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+          cache: npm
+      - run: make setup
+      - run: make test
+      - run: make lint
